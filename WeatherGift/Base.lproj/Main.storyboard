@@ -13,15 +13,15 @@
         <!--PageVC-->
         <scene sceneID="QAu-EM-FnY">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="hrB-a5-Ro3" customClass="PageVC" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="hrB-a5-Ro3" customClass="PageVC" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qnw-rA-YBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="601" y="-572"/>
+            <point key="canvasLocation" x="906" y="-585"/>
         </scene>
         <!--DetailVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DetailVC" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailVC" id="BYZ-38-t0r" customClass="DetailVC" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,10 +76,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="currentImage" destination="JCz-3O-4xb" id="SZi-O8-3qN"/>
+                        <outlet property="dateLabel" destination="zE9-Dp-b2E" id="tFy-Tp-R7c"/>
+                        <outlet property="locationLabel" destination="FNk-oN-gVR" id="gGh-jB-C1H"/>
+                        <outlet property="summaryLabel" destination="Km2-Dm-DJY" id="ciQ-fc-YNC"/>
+                        <outlet property="temperatureLabel" destination="erx-0a-h4v" id="ard-3E-jI7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+            <point key="canvasLocation" x="181" y="141"/>
         </scene>
         <!--ListVC-->
         <scene sceneID="1Tt-XK-Hjp">
