@@ -11,7 +11,7 @@ import UIKit
 class PageVC: UIPageViewController {
     
     var currentPage = 0
-    var locationsArray = ["Local City", "Sydney, Austrailia", "Accra Ghana", "Uglich, Russia"]
+    var locationsArray = ["Local City", "Sydney, Austrailia", "Accra, Ghana", "Uglich, Russia"]
     var pageControl: UIPageControl!
     var listButton: UIButton!
     var barButtonWidth: CGFloat = 44
@@ -56,12 +56,27 @@ class PageVC: UIPageViewController {
         listButton = UIButton(frame: CGRect(x: view.frame.width - barButtonWidth, y: safeHeight - barButtonHeight, width: barButtonWidth, height: barButtonHeight))
         listButton.setImage(UIImage(named: "listbutton"), for: .normal)
         listButton.setImage(UIImage(named: "listbutton-highlighted"), for: .highlighted)
-        listButton.addTarget(self, action: #selector(segueToLocationVC), for: .touchUpInside)
+        listButton.addTarget(self, action: #selector(segueToListVC), for: .touchUpInside)
         view.addSubview(listButton)
     }
     
-    @objc func segueToLocationVC (){
-        print("Hey you clicked me")
+    //Mark:- Segues
+    @objc func segueToListVC (){
+        performSegue(withIdentifier: "ToListVC", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToListVC"{
+            let destination = segue.destination as! ListVC
+            destination.locationsArray = locationsArray
+            destination.currentPage = currentPage
+        }
+    }
+    
+
+    @IBAction func unwindfromListVC(sender: UIStoryboardSegue){
+        pageControl.numberOfPages = locationsArray.count
+        pageControl.currentPage = currentPage
+        setViewControllers([createDetailVC(forPage: currentPage)], direction: .forward, animated: false, completion: nil)
     }
     
     //Mark:- Create View Controller for UIPageViewController
