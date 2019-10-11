@@ -13,6 +13,7 @@ class PageVC: UIPageViewController {
     var currentPage = 0
     var locationsArray = ["Local City", "Sydney, Austrailia", "Accra Ghana", "Uglich, Russia"]
     var pageControl: UIPageControl!
+    var listButton: UIButton!
     var barButtonWidth: CGFloat = 44
     var barButtonHeight: CGFloat = 44
 
@@ -30,7 +31,10 @@ class PageVC: UIPageViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         configurePageControll()
+        configureListButton()
     }
+    
+    //MARK:- UI Configureations Methods
     
     func configurePageControll (){
         let pageControlHeight: CGFloat = barButtonHeight
@@ -46,6 +50,21 @@ class PageVC: UIPageViewController {
         view.addSubview(pageControl)
     }
     
+    func configureListButton(){
+        let safeHeight = view.frame.height - view.safeAreaInsets.bottom
+        
+        listButton = UIButton(frame: CGRect(x: view.frame.width - barButtonWidth, y: safeHeight - barButtonHeight, width: barButtonWidth, height: barButtonHeight))
+        listButton.setImage(UIImage(named: "listbutton"), for: .normal)
+        listButton.setImage(UIImage(named: "listbutton-highlighted"), for: .highlighted)
+        listButton.addTarget(self, action: #selector(segueToLocationVC), for: .touchUpInside)
+        view.addSubview(listButton)
+    }
+    
+    @objc func segueToLocationVC (){
+        print("Hey you clicked me")
+    }
+    
+    //Mark:- Create View Controller for UIPageViewController
     
     func createDetailVC(forPage page: Int) -> DetailVC{
         
