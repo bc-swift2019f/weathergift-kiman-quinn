@@ -79,10 +79,10 @@
 			children = (
 				977561E9234FEFEB00704688 /* AppDelegate.swift */,
 				977138DA235A4BAC00111E0E /* WeatherLocation.swift */,
-				975759C7235D2CF200D568ED /* Constants.swift */,
 				977561FF234FF4F900704688 /* PageVC.swift */,
 				977561FB234FF00700704688 /* DetailVC.swift */,
 				977561FD234FF30C00704688 /* ListVC.swift */,
+				975759C7235D2CF200D568ED /* Constants.swift */,
 				977561ED234FEFEB00704688 /* Main.storyboard */,
 				977561F0234FEFEB00704688 /* Assets.xcassets */,
 				977561F2234FEFEB00704688 /* LaunchScreen.storyboard */,
