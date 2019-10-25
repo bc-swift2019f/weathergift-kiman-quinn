@@ -33,7 +33,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tzU-ek-xOP">
                                 <rect key="frame" x="0.0" y="44" width="414" height="200"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JCz-3O-4xb">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JCz-3O-4xb">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -139,7 +139,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="hourlyCell" id="glr-c0-mqn">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="hourlyCell" id="glr-c0-mqn" customClass="HourlyWeatherCell" customModule="WeatherGift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -160,10 +160,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="AJp-k9-xBz">
-                                                    <rect key="frame" x="20" y="20" width="30" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="raindrop" translatesAutoresizingMaskIntoConstraints="NO" id="SWr-53-ZdP">
                                                     <rect key="frame" x="58" y="23" width="8" height="12"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -175,8 +171,19 @@
                                                     <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="small-cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="AJp-k9-xBz">
+                                                    <rect key="frame" x="20" y="20" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
+                                        <connections>
+                                            <outlet property="hourlyIcon" destination="AJp-k9-xBz" id="cVT-qu-wFg"/>
+                                            <outlet property="hourlyPrecipProb" destination="y56-Tn-kvC" id="Rwm-cB-Oje"/>
+                                            <outlet property="hourlyTemp" destination="iHU-pC-M0f" id="Efw-JZ-L2V"/>
+                                            <outlet property="hourlyTime" destination="dzP-xz-0GI" id="vTJ-4w-bp4"/>
+                                            <outlet property="rainDropImage" destination="SWr-53-ZdP" id="8pM-hI-x0U"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -287,7 +294,7 @@
     </scenes>
     <resources>
         <image name="clear-day" width="384" height="384"/>
-        <image name="cloudy" width="384" height="384"/>
         <image name="raindrop" width="18" height="20"/>
+        <image name="small-cloudy" width="384" height="384"/>
     </resources>
 </document>
